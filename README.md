@@ -5,9 +5,9 @@ I found this project to be very fun and interesting on how an Xbox 360 game stor
 
 We have a virtual address that accepts 4 bytes of memory to read a value into the game to display a ratio between both kills/deaths (KD Ratio) and wins and losses (WL Ratio). The number is formatted with up to 3 decimal places.
 
-Each byte represents a different number, meaning the first, second, third, and fourth byte are all unique. 
+Each byte represents a different number, meaning the first, second, third, and fourth bytes are all unique. 
 
-THe function CalculateBytes I wrote handles the logic of each of these byte values. When a user submits a value, for example 1.525, we have to check whether the value is equal to or greater than the value that each byte represents when writing "01".
+The function CalculateBytes I wrote handles the logic of each of these byte values. When a user submits a value, for example 1.525, we have to check whether the value is equal to or greater than the value that each byte represents when writing "01".
 
 In backwards order, the 4th byte represents large numbers, with memory value 01 equalling 65.536. The 3rd byte represents 0.226, and the 2nd byte represents 0.001. The first byte is unused.
 
