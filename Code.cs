@@ -22,17 +22,38 @@ private byte[] CalculateBytes(decimal value)
     byte[] bytes = new byte[4];
     if (value >= 65.536m)
     {
-        bytes[3] = (byte)(value / 65.536m);
+        if (value >= 0xFF)
+        {
+            bytes[3] = 0xFF;
+        }
+        else
+        {
+            bytes[3] = (byte)(value / 65.536m);
+        }
         value -= bytes[3] * 65.536m;
     }
     if (value >= 0.256m)
     {
-        bytes[2] = (byte)(value / 0.256m);
+        if (value >= 0xFF)
+        {
+            bytes[2] = 0xFF;
+        }
+        else
+        {
+            bytes[2] = (byte)(value / 0.256m);
+        }
         value -= bytes[2] * 0.256m;
     }
     if (value >= 0.001m)
     {
-        bytes[1] = (byte)(value / 0.001m);
+        if (value >= 0xFF)
+        {
+            bytes[1] = 0xFF;
+        }
+        else
+        {
+            bytes[1] = (byte)(value / 0.001m);
+        }
         value -= bytes[1] * 0.001m;
     }
     return bytes;
